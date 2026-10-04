@@ -8,7 +8,7 @@ RayverSec.
 
 ## Dominio y canal
 
-El dominio público es https://rayversec.com, comprado en Namecheap. El canal de YouTube es RAYVERSEC, https://www.youtube.com/@RAYVERSEC. El nombre del proyecto es RayverSec. No hay ninguna dirección riversec.com en estos archivos.
+El dominio público es https://rayversec.com, comprado en Namecheap. El canal de YouTube es RAYVERSEC, https://www.youtube.com/@RAYVERSEC. El nombre del proyecto es RayverSec. El único dominio de este proyecto es rayversec.com.
 
 ## Qué es
 
