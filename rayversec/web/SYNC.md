@@ -12,18 +12,18 @@ La web no tiene cursos escritos a mano. Lee el markdown del repositorio.
 ## Paso mínimo
 
 1. Añadir el markdown nuevo en `cursos/` y su entrada al final de `CATALOGO.md` (el propio plan dice que el 01 no se reescribe).
-2. Reconstruir el contenedor desde la carpeta padre, para que el build vea `cursos/` y `riversec/web/` a la vez:
+2. Reconstruir el contenedor desde la carpeta padre, para que el build vea `cursos/` y `rayversec/web/` a la vez:
 
 ```bash
-docker build -f riversec/web/Dockerfile -t riversec-web /workspace/ciber-vigilancia
+docker build -f rayversec/web/Dockerfile -t rayversec-web /workspace/ciber-vigilancia
 ```
 
-El Dockerfile copia `cursos/` y, al construir, `npm run build` ejecuta `scripts/sync-cursos.mjs`. Ese script escribe la colección en `riversec/web/src/content/cursos/` y la lista de ideas en `riversec/web/src/data/ideas.json`. Astro genera una página por cada markdown de esa colección.
+El Dockerfile copia `cursos/` y, al construir, `npm run build` ejecuta `scripts/sync-cursos.mjs`. Ese script escribe la colección en `rayversec/web/src/content/cursos/` y la lista de ideas en `rayversec/web/src/data/ideas.json`. Astro genera una página por cada markdown de esa colección.
 
 En esta máquina, sin Docker, el mismo refresco es:
 
 ```bash
-cd /workspace/ciber-vigilancia/riversec/web
+cd /workspace/ciber-vigilancia/rayversec/web
 npm run build
 ```
 

@@ -9,7 +9,7 @@ No son logos de marcas de antivirus ni de fabricantes.
 ### escudo.svg
 
 - Motivo: escudo con una marca de comprobación.
-- Ruta: `/workspace/ciber-vigilancia/riversec/logos/escudo.svg`
+- Ruta: `/workspace/ciber-vigilancia/rayversec/logos/escudo.svg`
 - Descargado de: https://upload.wikimedia.org/wikipedia/commons/1/14/Paomedia_small-n-flat_shield-ok.svg
 - Página del archivo: https://commons.wikimedia.org/wiki/File:Paomedia_small-n-flat_shield-ok.svg
 - Licencia que declara Wikimedia Commons en los metadatos de ese archivo: CC0. Nombre corto: CC0. Términos de uso: Creative Commons Zero, Public Domain Dedication. Autor indicado: paomedia. Crédito indicado: https://github.com/paomedia/small-n-flat
@@ -18,7 +18,7 @@ No son logos de marcas de antivirus ni de fabricantes.
 ### cerradura.svg
 
 - Motivo: cerradura.
-- Ruta: `/workspace/ciber-vigilancia/riversec/logos/cerradura.svg`
+- Ruta: `/workspace/ciber-vigilancia/rayversec/logos/cerradura.svg`
 - Descargado de: https://raw.githubusercontent.com/tabler/tabler-icons/main/icons/outline/lock.svg
 - Página del archivo: https://github.com/tabler/tabler-icons/blob/main/icons/outline/lock.svg
 - Licencia: MIT. Está declarada en el archivo LICENSE del repositorio, https://github.com/tabler/tabler-icons/blob/main/LICENSE (texto MIT, copyright 2020-2026 Paweł Kuna). El SVG no lleva una línea de licencia propia. El `package.json` consultado no trae un campo `license`.
@@ -26,7 +26,7 @@ No son logos de marcas de antivirus ni de fabricantes.
 ### red.svg
 
 - Motivo: red (nodos conectados; las etiquetas del SVG dicen connection, internet, network, computing).
-- Ruta: `/workspace/ciber-vigilancia/riversec/logos/red.svg`
+- Ruta: `/workspace/ciber-vigilancia/rayversec/logos/red.svg`
 - Descargado de: https://raw.githubusercontent.com/tabler/tabler-icons/main/icons/outline/network.svg
 - Página del archivo: https://github.com/tabler/tabler-icons/blob/main/icons/outline/network.svg
 - Licencia: MIT, la misma del repositorio Tabler citada arriba. No está repetida dentro del SVG.
@@ -34,7 +34,7 @@ No son logos de marcas de antivirus ni de fabricantes.
 ### ojo.svg
 
 - Motivo: ojo.
-- Ruta: `/workspace/ciber-vigilancia/riversec/logos/ojo.svg`
+- Ruta: `/workspace/ciber-vigilancia/rayversec/logos/ojo.svg`
 - Descargado de: https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg
 - Página del archivo: https://github.com/primer/octicons/blob/main/icons/eye-16.svg
 - Licencia: MIT. Está declarada en https://github.com/primer/octicons/blob/main/LICENSE (texto MIT, copyright 2026 GitHub Inc.). El SVG no lleva una línea de licencia propia.
@@ -42,7 +42,7 @@ No son logos de marcas de antivirus ni de fabricantes.
 ### binario.svg
 
 - Motivo: dígitos binarios. Las etiquetas del SVG dicen binary, code, digital, bit, byte.
-- Ruta: `/workspace/ciber-vigilancia/riversec/logos/binario.svg`
+- Ruta: `/workspace/ciber-vigilancia/rayversec/logos/binario.svg`
 - Descargado de: https://raw.githubusercontent.com/tabler/tabler-icons/main/icons/outline/binary.svg
 - Página del archivo: https://github.com/tabler/tabler-icons/blob/main/icons/outline/binary.svg
 - Licencia: MIT, la misma del repositorio Tabler citada arriba. No está repetida dentro del SVG.

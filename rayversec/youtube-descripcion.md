@@ -2,7 +2,7 @@
 
 Texto para la descripción del canal https://www.youtube.com/@RAYVERSEC. Todavía no está publicado en YouTube: hace falta entrar en YouTube Studio con la cuenta del canal.
 
-RiverSec es un canal de ciberseguridad defensiva.
+RayverSec es un canal de ciberseguridad defensiva.
 
 Nace para ayudar, en principio, a la gente más cercana: familia y amigos que usan el móvil, el correo o el banco y no tienen por qué saber de seguridad. Los cursos de formación de defensa son gratis. Aquí se aprende a protegerse, no a atacar.
 

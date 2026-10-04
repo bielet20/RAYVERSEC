@@ -33,7 +33,7 @@ function sendHtml(res, status, paragraph, back) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RiverSec</title>
+  <title>RayverSec</title>
 </head>
 <body>
   <p>${paragraph}</p>

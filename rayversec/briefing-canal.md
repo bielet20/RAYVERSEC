@@ -1,14 +1,14 @@
-# Briefing del canal RiverSec
+# Briefing del canal RayverSec
 
 Documento para Biel (Gabriel Rivero). Hechos tomados de los archivos que ya están en `/workspace/ciber-vigilancia`. No describe vídeos montados ni una carga en Real News Bot.
 
 ## Nombre
 
-RiverSec.
+RayverSec.
 
 ## Dominio y canal
 
-El dominio público es https://rayversec.com, comprado en Namecheap. El canal de YouTube es RAYVERSEC, https://www.youtube.com/@RAYVERSEC. El nombre del proyecto sigue siendo RiverSec. No hay ninguna dirección riversec.com en estos archivos.
+El dominio público es https://rayversec.com, comprado en Namecheap. El canal de YouTube es RAYVERSEC, https://www.youtube.com/@RAYVERSEC. El nombre del proyecto es RayverSec. No hay ninguna dirección riversec.com en estos archivos.
 
 ## Qué es
 
