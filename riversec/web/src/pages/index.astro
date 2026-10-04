@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const cursos = (await getCollection('cursos')).sort((a, b) => a.data.numero.localeCompare(b.data.numero));
+const cercana = cursos.filter((c) => c.data.rama === 'cercana');
+const tutorial = cursos.filter((c) => c.data.rama === 'tutorial');
+---
+<Base
+  title="RiverSec"
+  description="RiverSec es un canal de ciberseguridad defensiva con dos ramas: cercana y tutorial."
+>
+  <h1>RiverSec</h1>
+  <p>La web pública es rayversec.com. El canal de YouTube es RAYVERSEC.</p>
+  <p class="lead">
+    Canal de ciberseguridad defensiva. Guarda avisos públicos y los convierte en fichas y en cursos
+    de protección y de recuperación. No es un manual de ataque.
+  </p>
+  <section class="card featured">
+    <h2>Para la gente de cerca</h2>
+    <p>
+      RiverSec nace para ayudar, en principio, a la gente más cercana: familia y amigos que usan el
+      móvil, el correo o el banco y no tienen por qué saber de seguridad. Los cursos de defensa son
+      gratis. Aquí se aprende a protegerse, no a atacar.
+    </p>
+    <p>
+      En el canal de YouTube, RAYVERSEC, se ayuda a todo el mundo que se pueda. Si quieres echar una
+      mano para que esto llegue más lejos, hace falta ayuda. El mundo que viene es un mundo de
+      ataques constantes y de inseguridad constante. Hay que ser una piña para defenderse.
+    </p>
+  </section>
+  <p>
+    La misión, tal como está escrita en la documentación del proyecto, es decir qué ha pasado, a
+    quién afecta y qué debe hacer una persona sin conocimientos técnicos. Si un aviso es solo para
+    quien administra sistemas, se resume el riesgo en una frase y no se copian detalles de
+    explotación. No se guardan procedimientos de ataque, código, kits de phishing, cómo fabricar
+    malware ni cómo saltarse una protección.
+  </p>
+
+  <h2>De dónde salen los avisos</h2>
+  <p>Las fuentes que el propio proyecto dice vigilar, en <code>fuentes.md</code>, son estas:</p>
+  <ul>
+    <li>INCIBE, avisos de seguridad, y la línea 017 para la ciudadanía.</li>
+    <li>OSI, ayuda en ciberseguridad para la ciudadanía.</li>
+    <li>CISA, avisos de ciberseguridad.</li>
+    <li>CERT-EU, alertas de seguridad.</li>
+  </ul>
+  <p class="meta">
+    En <code>documentacion/</code> hay ahora una ficha: «Actualiza el iPhone, el iPad y el Mac»
+    (2026-09-29, tipo vulnerabilidades). El resto de carpetas de avisos del índice no tienen
+    archivos.
+  </p>
+
+  <h2>Dos ramas, separadas</h2>
+  <div class="grid two">
+    <article class="card">
+      <p><span class="tag">Cercana</span></p>
+      <h3>Principiantes absolutos</h3>
+      <p>
+        Charla, como si se lo contaras a un familiar. Frases cortas. Sin jerga. Qué no hacer y cómo
+        protegerse antes de que pase nada. Si ya pasó, solo los primeros pasos y a quién llamar,
+        sin herramientas ni análisis.
+      </p>
+      <p class="meta">{cercana.length} cursos escritos en el catálogo, del 01 al 09.</p>
+    </article>
+    <article class="card">
+      <p><span class="tag">Tutorial</span></p>
+      <h3>Nivel medio y avanzado</h3>
+      <p>
+        Paso a paso, para quien ya sabe cambiar una clave, revisar una cuenta y no pulsar el enlace.
+        Se describe la señal y la comprobación, y cómo defenderse o recuperarse. No se dan pasos
+        para montar el phishing, el malware o el robo.
+      </p>
+      <p class="meta">{tutorial.length} cursos escritos en el catálogo, del 10 al 13. El 10 es nivel medio; el 11, el 12 y el 13 son avanzados.</p>
+    </article>
+  </div>
+
+  <h2>Qué hay escrito</h2>
+  <p>
+    El orden, de base a cima, está en <code>cursos/CATALOGO.md</code>. El archivo
+    <code>00-plan-dos-vias.md</code> es el plan de las dos vías, no un curso numerado. El curso 01
+    figura como ya escrito. Los cursos 02 a 13 figuran como escritos el 4 de octubre de 2026. Las
+    duraciones de los vídeos son estimaciones de producción, no minutaje oficial, y no salen de un
+    curso universitario.
+  </p>
+  <p>
+    <a href="/cursos">Ver los cursos y las ideas que no están publicadas</a>
+  </p>
+</Base>

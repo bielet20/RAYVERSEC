@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ideasData from '../../data/ideas.json';
+
+const cursos = (await getCollection('cursos')).sort((a, b) => a.data.numero.localeCompare(b.data.numero));
+const grupos = [
+  { id: 'cercana', titulo: 'Vía cercana', texto: 'Charla para quien no sabe de ordenadores.' },
+  { id: 'tutorial', titulo: 'Vía tutorial', texto: 'Defensa y recuperación, paso a paso. Sin pasos de ataque.' },
+];
+---
+<Base
+  title="Cursos de RiverSec"
+  description="Cursos escritos de RiverSec, separados en vía cercana y vía tutorial. Las ideas sin texto no están publicadas."
+>
+  <h1>Cursos</h1>
+  <p class="lead">
+    Cada ficha de aquí sale de un markdown que ya está en <code>cursos/</code> y de su entrada en
+    <code>CATALOGO.md</code>. No se afirma que estén grabados ni subidos a YouTube.
+  </p>
+
+  {grupos.map((grupo) => (
+    <section>
+      <h2>{grupo.titulo}</h2>
+      <p class="meta">{grupo.texto}</p>
+      <ul class="list">
+        {cursos.filter((c) => c.data.rama === grupo.id).map((curso) => (
+          <li>
+            <a class="item" href={`/cursos/${curso.id}`}>
+              <span class="tag">{curso.data.rama}</span>
+              <span class="tag">{curso.data.nivel}</span>
+              <h3>{curso.data.numero}. {curso.data.titulo}</h3>
+              <p>{curso.data.resumen}</p>
+              <p class="meta">{curso.data.estado}. {curso.data.videos} vídeos en el catálogo. Archivo {curso.data.archivo}.</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <h2>Ideas no publicadas</h2>
+  <div class="callout">
+    <p>{ideasData.nota}</p>
+  </div>
+  <ul>
+    {ideasData.ideas.map((idea) => (
+      <li>
+        <strong>{idea.titulo}.</strong> {idea.texto}
+        <span class="tag warn">no publicado</span>
+      </li>
+    ))}
+  </ul>
+</Base>

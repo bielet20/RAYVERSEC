@@ -1,0 +1,25 @@
+{
+  "nota": "Estas cuatro entradas son ideas. No están escritas y no son cursos del canal.",
+  "ideas": [
+    {
+      "titulo": "WiFi del trabajo",
+      "texto": "Qué no hacer en la red de la oficina y a quién avisar, sin tocar la administración de esa red.",
+      "publicado": false
+    },
+    {
+      "titulo": "Copias de seguridad",
+      "texto": "Una copia de documentos además de las fotos de casa, hecha con calma y guardada aparte.",
+      "publicado": false
+    },
+    {
+      "titulo": "Estafas de inversión",
+      "texto": "Promesas de beneficio rápido por mensaje: no ingresar y comprobar por un camino propio.",
+      "publicado": false
+    },
+    {
+      "titulo": "Privacidad en redes",
+      "texto": "Qué no publicar y qué no confirmar a un desconocido que ya vio tu perfil.",
+      "publicado": false
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const cursos = await getCollection('cursos');
+  return cursos.map((curso) => ({
+    params: { slug: curso.id },
+    props: { curso },
+  }));
+}
+
+const { curso } = Astro.props;
+const { Content } = await render(curso);
+const rama = curso.data.rama === 'cercana' ? 'Vía cercana' : 'Vía tutorial';
+---
+<Base title={`${curso.data.numero}. ${curso.data.titulo}`} description={curso.data.resumen}>
+  <p>
+    <a href="/cursos">Cursos</a>
+  </p>
+  <p>
+    <span class="tag">{rama}</span>
+    <span class="tag">{curso.data.nivel}</span>
+    <span class="tag">{curso.data.estado}</span>
+  </p>
+  <h1>{curso.data.numero}. {curso.data.titulo}</h1>
+  <p class="lead">{curso.data.resumen}</p>
+  <p class="meta">
+    Título interno del archivo: {curso.data.h1}. Fuente: <code>{curso.data.archivo}</code>.
+    El catálogo cuenta {curso.data.videos} vídeos; el archivo lista {curso.data.piezas.length}.
+  </p>
+  <h2>Vídeos previstos en el markdown</h2>
+  <p class="meta">
+    Títulos y minutos copiados del archivo del curso. Son estimaciones para un vídeo hablado, no una
+    publicación en YouTube.
+  </p>
+  <ol class="piezas">
+    {curso.data.piezas.map((pieza) => (
+      <li>
+        <h3>{pieza.titulo}</h3>
+        <p class="meta">{pieza.duracion_min} min estimados</p>
+        <p>{pieza.que_se_explica}</p>
+      </li>
+    ))}
+  </ol>
+  <Content />
+</Base>

@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Chat — RiverSec"
+  description="Escribe en una conversación qué problema de ciberseguridad tienes. El mensaje solo confirma que Gabriel lo revisará."
+>
+  <h1>Chat</h1>
+  <p class="lead">
+    Cuenta aquí lo mismo que en el formulario, mensaje a mensaje. Sirve para quien está en un apuro.
+    No es un sitio para pedir cómo atacar, entrar en un sistema o saltarse una protección. Eso no se
+    contesta, y esta conversación no da pasos ni consejos.
+  </p>
+  <div class="callout">
+    <p>No envíes contraseñas, códigos de un solo uso ni números de tarjeta.</p>
+  </div>
+
+  <form class="card" id="datos-chat">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" name="nombre" type="text" maxlength="200" required autocomplete="name" />
+
+    <label>Cómo te respondemos</label>
+    <div class="radios">
+      <label><input type="radio" name="respuesta_por" value="email" checked /> Correo</label>
+      <label><input type="radio" name="respuesta_por" value="telefono" /> Teléfono</label>
+    </div>
+
+    <label for="contacto">Correo o teléfono</label>
+    <input id="contacto" name="contacto" type="text" maxlength="200" required />
+  </form>
+
+  <div id="hilo" class="chat-log" aria-live="polite"></div>
+
+  <form id="form-chat" class="compose">
+    <div style="flex:1">
+      <label for="texto">Tu mensaje</label>
+      <textarea id="texto" name="texto" maxlength="8000" required placeholder="Qué te ocurre"></textarea>
+    </div>
+    <button type="submit">Enviar</button>
+  </form>
+  <p id="estado" class="estado" role="status"></p>
+</Base>
+
+<script is:inline>
+  const datos = document.getElementById('datos-chat');
+  const form = document.getElementById('form-chat');
+  const hilo = document.getElementById('hilo');
+  const estado = document.getElementById('estado');
+  const texto = document.getElementById('texto');
+
+  function burbuja(clase, mensaje) {
+    const p = document.createElement('p');
+    p.className = 'bubble ' + clase;
+    p.textContent = mensaje;
+    hilo.appendChild(p);
+    p.scrollIntoView({ block: 'nearest' });
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!datos.reportValidity()) return;
+    const button = form.querySelector('button');
+    const campos = Object.fromEntries(new FormData(datos).entries());
+    const mensaje = texto.value.trim();
+    if (!mensaje) return;
+    button.disabled = true;
+    estado.className = 'estado';
+    estado.textContent = '';
+    burbuja('user', mensaje);
+    texto.value = '';
+    try {
+      const res = await fetch('/api/peticiones', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          origen: 'chat',
+          nombre: campos.nombre,
+          respuesta_por: campos.respuesta_por,
+          contacto: campos.contacto,
+          texto: mensaje,
+        }),
+      });
+      const body = await res.json();
+      if (!res.ok || !body.ok) {
+        estado.className = 'estado fail';
+        estado.textContent = body.error || 'No se ha podido guardar.';
+      } else {
+        burbuja('bot', body.respuesta);
+      }
+    } catch (err) {
+      estado.className = 'estado fail';
+      estado.textContent = 'No se ha podido guardar. Inténtalo otra vez.';
+    } finally {
+      button.disabled = false;
+      texto.focus();
+    }
+  });
+</script>

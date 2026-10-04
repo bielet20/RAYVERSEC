@@ -1,0 +1,147 @@
+:root {
+  --ink: #14221c;
+  --muted: #3d5348;
+  --paper: #f4f7f4;
+  --card: #ffffff;
+  --line: #d5e0d8;
+  --green: #1f6b45;
+  --green-dark: #144832;
+  --sand: #e7f2eb;
+  --warn: #8a4b12;
+  --warn-bg: #fff6ea;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+}
+a { color: var(--green-dark); }
+img { max-width: 100%; }
+
+.wrap { width: min(980px, calc(100% - 2rem)); margin: 0 auto; }
+header.site {
+  background: var(--green-dark);
+  color: #f3faf6;
+}
+header.site a { color: inherit; text-decoration: none; }
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+.brand { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; letter-spacing: 0.02em; }
+.brand img { width: 36px; height: 36px; background: #fff; border-radius: 8px; }
+nav { display: flex; gap: 1rem; }
+nav a { border-bottom: 2px solid transparent; padding-bottom: 0.1rem; }
+nav a:hover { border-color: #b7e4c7; }
+
+main { padding: 2rem 0 3rem; }
+h1 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; margin: 0 0 0.6rem; }
+h2 { margin: 2rem 0 0.6rem; }
+h3 { margin: 0 0 0.3rem; }
+p { margin: 0.4rem 0 0.8rem; }
+.lead { font-size: 1.12rem; color: var(--muted); max-width: 68ch; }
+
+.grid { display: grid; gap: 1rem; }
+.grid.two { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+}
+.card h2, .card h3 { margin-top: 0; }
+.featured { border-color: var(--green, #2d6a4f); background: var(--sand, #f4f1ea); }
+.featured h2 { margin-top: 0; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--sand);
+  color: var(--green-dark);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  margin-right: 0.35rem;
+}
+.tag.warn { background: var(--warn-bg); color: var(--warn); }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+.list a.item {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+.list a.item:hover { border-color: var(--green); }
+.meta { color: var(--muted); font-size: 0.92rem; }
+ol.piezas { padding-left: 1.2rem; }
+ol.piezas li { margin: 0.8rem 0; }
+footer.site {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 1.2rem 0 2rem;
+}
+.callout {
+  background: var(--warn-bg);
+  border: 1px solid #f0d7b8;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+label { display: block; font-weight: 650; margin: 0.9rem 0 0.3rem; }
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+textarea { min-height: 9rem; resize: vertical; }
+.radios { display: flex; flex-wrap: wrap; gap: 0.8rem 1.2rem; margin: 0.2rem 0 0.4rem; }
+.radios label { font-weight: 500; margin: 0; }
+button {
+  margin-top: 1rem;
+  background: var(--green);
+  color: #f3faf6;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.65; cursor: wait; }
+.actions { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 8rem;
+  margin: 1rem 0;
+}
+.bubble {
+  max-width: min(70ch, 100%);
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  margin: 0;
+}
+.bubble.user { align-self: flex-end; background: var(--sand); }
+.bubble.bot { align-self: flex-start; background: var(--card); border: 1px solid var(--line); }
+.estado.ok { color: var(--green-dark); }
+.estado.fail { color: var(--warn); }
+.compose { display: flex; gap: 0.6rem; align-items: flex-end; }
+.compose textarea { min-height: 4.5rem; margin: 0; }
+.compose button { margin-top: 0; flex: 0 0 auto; }

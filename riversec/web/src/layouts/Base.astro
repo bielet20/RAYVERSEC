@@ -1,0 +1,46 @@
+---
+import '../styles/site.css';
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap bar">
+        <a class="brand" href="/">
+          <img src="/escudo.svg" alt="" width="36" height="36" />
+          <span>RiverSec</span>
+        </a>
+        <nav>
+          <a href="/">Inicio</a>
+          <a href="/cursos">Cursos</a>
+          <a href="/peticiones">Pedir ayuda</a>
+          <a href="/chat">Chat</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site">
+      <div class="wrap">
+        <p>
+          Canal de ciberseguridad defensiva. No es un manual de ataque. El icono del escudo es
+          el archivo CC0 de paomedia copiado desde <code>riversec/logos/escudo.svg</code>.
+        </p>
+        <p>Ninguna página de este sitio afirma que un curso esté publicado en YouTube.</p>
+      </div>
+    </footer>
+  </body>
+</html>

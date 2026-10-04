@@ -1,0 +1,15 @@
+{
+  "name": "riversec-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-cursos.mjs",
+    "prebuild": "node scripts/sync-cursos.mjs",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 4321"
+  },
+  "dependencies": {
+    "astro": "^5.14.1"
+  }
+}

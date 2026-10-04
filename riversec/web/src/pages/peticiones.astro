@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Pedir ayuda — RiverSec"
+  description="Cuenta un problema de ciberseguridad para que Gabriel lo revise. No es un sitio para pedir cómo atacar o saltarse una protección."
+>
+  <h1>Pedir ayuda</h1>
+  <p class="lead">
+    Si estás en un apuro, escribe qué te pasa. Gabriel lo leerá en el servidor. Esto no es un sitio
+    para pedir cómo atacar, entrar en un sistema o saltarse una protección. Eso no se contesta.
+  </p>
+  <div class="callout">
+    <p>
+      No escribas contraseñas, códigos de un solo uso ni números de tarjeta. Con el nombre y un
+      correo o un teléfono basta para poder responderte.
+    </p>
+  </div>
+
+  <form class="card" id="form-peticion" method="post" action="/api/peticiones">
+    <input type="hidden" name="origen" value="formulario" />
+    <label for="nombre">Nombre</label>
+    <input id="nombre" name="nombre" type="text" maxlength="200" required autocomplete="name" />
+
+    <label>Cómo te respondemos</label>
+    <div class="radios">
+      <label><input type="radio" name="respuesta_por" value="email" checked /> Correo</label>
+      <label><input type="radio" name="respuesta_por" value="telefono" /> Teléfono</label>
+    </div>
+
+    <label for="contacto">Correo o teléfono</label>
+    <input id="contacto" name="contacto" type="text" maxlength="200" required autocomplete="email" />
+
+    <label for="texto">Qué te ocurre</label>
+    <textarea id="texto" name="texto" maxlength="8000" required></textarea>
+
+    <div class="actions">
+      <button type="submit">Enviar</button>
+      <p id="estado" class="estado" role="status"></p>
+    </div>
+  </form>
+</Base>
+
+<script is:inline>
+  const form = document.getElementById('form-peticion');
+  const estado = document.getElementById('estado');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button');
+    button.disabled = true;
+    estado.className = 'estado';
+    estado.textContent = 'Enviando…';
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch('/api/peticiones', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const body = await res.json();
+      if (!res.ok || !body.ok) {
+        estado.className = 'estado fail';
+        estado.textContent = body.error || 'No se ha podido guardar.';
+      } else {
+        estado.className = 'estado ok';
+        estado.textContent = body.respuesta;
+        form.reset();
+        form.querySelector('input[value="email"]').checked = true;
+      }
+    } catch (err) {
+      estado.className = 'estado fail';
+      estado.textContent = 'No se ha podido guardar. Inténtalo otra vez.';
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
